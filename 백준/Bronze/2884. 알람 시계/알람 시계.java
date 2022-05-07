@@ -5,20 +5,20 @@ public class Main {
     
 		Scanner in = new Scanner(System.in);
 		
-		int H = in.nextInt(); // 시
-		int M = in.nextInt(); // 분
+		int hour = in.nextInt(); // 시
+		int minute = in.nextInt(); // 분
 		in.close();
 		
-		if(M < 45) {
-			H--;		// 시(hour) 1 감소
-			M= 60 - (45 - M); 	// 분(min) 감소
-			if(H < 0) {
-				H = 23;
+		if(minute < 45) {
+			hour--;		// 시(hour) 1 감소
+			minute = 60 - (45 - minute); 	// 분(min) 감소
+			if(hour < 0) {
+				hour = 23;
 			}
-			System.out.println(H + " " + M);
+			System.out.println(hour + " " + minute);
 		}
 		else {
-			System.out.println(H + " " + (M - 45));
+			System.out.println(hour + " " + (minute - 45));
 		}
 	}
 }
