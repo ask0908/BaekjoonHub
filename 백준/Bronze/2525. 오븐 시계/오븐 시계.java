@@ -3,18 +3,19 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int h = s.nextInt();
-        int m = s.nextInt();
-        int n = s.nextInt();
+        int hour = s.nextInt();
+        int minute = s.nextInt();
+        int needTime = s.nextInt();
         s.close();
 
-        int a = h * 60 + m + n;
-        h = a / 60;
-        m = a % 60;
+        int targetTime = (hour * 60) + minute + needTime;
+        hour = targetTime / 60;
+        minute = targetTime % 60;
 
-        if (h >= 24) {
-            h -= 24;
+        // 시간이 24보다 크게 나올 수 있어 틀렸다고 나온다. 이 경우 처리를 해줘야 한다
+        if (hour >= 24) {
+            hour -= 24;
         }
-        System.out.println(h + " " + m);
+        System.out.println(hour + " " + minute);
     }
 }
