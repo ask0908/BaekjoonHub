@@ -23,12 +23,10 @@ class Main {
             map.put("2", secondNumber);
             map.put("3", thirdNumber);
 
-            if (firstNumber != secondNumber && secondNumber != thirdNumber && firstNumber != thirdNumber) {
-                Object[] mapKey = map.values().toArray();
-                Arrays.sort(mapKey);
-                int a = (int) mapKey[2];
-                System.out.println(a * 100);
-            }
+            Object[] mapKey = map.values().toArray();
+            Arrays.sort(mapKey);
+            int a = (int) mapKey[2];
+            System.out.println(a * 100);
         }
     }
 }
