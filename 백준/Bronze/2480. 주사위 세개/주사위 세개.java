@@ -1,20 +1,34 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int a = s.nextInt();
-        int b = s.nextInt();
-        int c = s.nextInt();
-        
-        if (a == b && b == c) {
-            System.out.println(10000 + (a * 1000));
-        } else if (a == b || a == c) {
-            System.out.println(1000 + (a * 100));
-        } else if (b == c) {
-            System.out.println(1000 + (b * 100));
+        int firstNumber = s.nextInt();
+        int secondNumber = s.nextInt();
+        int thirdNumber = s.nextInt();
+
+        // 같은 눈이 3개인 경우
+        if (firstNumber == secondNumber && secondNumber == thirdNumber) {
+            System.out.println(10000 + (firstNumber * 1000));
+        } else if (firstNumber == secondNumber || firstNumber == thirdNumber) {
+            System.out.println(1000 + (firstNumber * 100));
+        } else if (secondNumber == thirdNumber) {
+            System.out.println(1000 + (secondNumber * 100));
         } else {
-            System.out.println((Math.max(a, Math.max(b, c)) * 100));
+            Map<String, Integer> map = new HashMap<>();
+            map.put("1", firstNumber);
+            map.put("2", secondNumber);
+            map.put("3", thirdNumber);
+
+            if (firstNumber != secondNumber && secondNumber != thirdNumber && firstNumber != thirdNumber) {
+                Object[] mapKey = map.values().toArray();
+                Arrays.sort(mapKey);
+                int a = (int) mapKey[2];
+                System.out.println(a * 100);
+            }
         }
     }
 }
